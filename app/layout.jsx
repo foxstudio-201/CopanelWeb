@@ -17,8 +17,9 @@ const body = Inter({
 
 export const metadata = {
   title: 'CoPanel — Trình quản lý máy chủ game trên Windows',
+  publisher: 'LunarSpace',
   description:
-    'CoPanel là ứng dụng Windows quản lý máy chủ game trên nền tảng dịch vụ hosting game (Pterodactyl, Calagopus): console realtime, tệp tin, sao lưu, lịch trình, người chơi và kho đồ Minecraft. Miễn phí, không server trung gian.',
+    'CoPanel là ứng dụng Windows quản lý máy chủ game trên các nền tảng dịch vụ hosting game (chạy panel Pterodactyl hoặc Calagopus): console realtime, tệp tin, sao lưu, lịch trình, người chơi và kho đồ Minecraft. Miễn phí, không server trung gian.',
   openGraph: {
     type: 'website',
     locale: 'vi_VN',

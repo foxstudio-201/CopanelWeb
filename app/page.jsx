@@ -41,9 +41,10 @@ export default async function Page() {
                 <span className="grad-text">ngay trên desktop</span>
               </h1>
               <p className="lead">
-                CoPanel kết nối trực tiếp tới <strong>nền tảng dịch vụ hosting game</strong> như Pterodactyl,
-                Calagopus — console realtime, tệp tin, sao lưu, lịch trình, người chơi và kho đồ Minecraft… tất cả
-                trong một ứng dụng Windows gọn nhẹ. Không tài khoản trung gian, dữ liệu không rời khỏi máy bạn.
+                CoPanel kết nối trực tiếp tới <strong>nền tảng dịch vụ hosting game</strong> bạn đang dùng (phần lớn
+                chạy trên panel Pterodactyl hoặc Calagopus) — console realtime, tệp tin, sao lưu, lịch trình, người
+                chơi và kho đồ Minecraft… tất cả trong một ứng dụng Windows gọn nhẹ. Không tài khoản trung gian, dữ
+                liệu không rời khỏi máy bạn.
               </p>
               <div className="cta-row">
                 <a className="btn btn-primary btn-lg" id="heroDownload" href={rel.setupUrl}>
@@ -510,7 +511,7 @@ export default async function Page() {
               <img src="/img/logo.png" alt="" width="30" height="30" />
               <span>CoPanel</span>
             </a>
-            <p>Trình quản lý máy chủ game trên Windows. Miễn phí, mã nguồn công khai trên GitHub.</p>
+            <p>Sản phẩm của LunarSpace — trình quản lý máy chủ game trên Windows. Miễn phí, mã nguồn công khai trên GitHub.</p>
           </div>
           <nav className="footer-col reveal" aria-label="Sản phẩm">
             <h3>Sản phẩm</h3>
@@ -536,7 +537,7 @@ export default async function Page() {
           </nav>
         </div>
         <div className="container footer-bottom">
-          <p>© 2026 CoPanel. Không liên kết chính thức với Pterodactyl hay Calagopus.</p>
+          <p>© 2026 LunarSpace · CoPanel — Không liên kết chính thức với Pterodactyl hay Calagopus.</p>
           <p>
             Made for Windows · <a href="#top">Lên đầu trang</a>
           </p>
