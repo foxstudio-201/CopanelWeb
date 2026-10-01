@@ -1,6 +1,7 @@
 import Nav from '../components/Nav'
 import Gallery from '../components/Gallery'
 import Reveal from '../components/Reveal'
+import HeroFX from '../components/HeroFX'
 import Icon from '../components/Icon'
 import Sprite from '../components/Sprite'
 import { getLatestRelease, REPO_URL, RELEASES_URL, LICENSE_URL, README_URL } from '../lib/release'
@@ -543,6 +544,7 @@ export default async function Page() {
       </footer>
 
       <Reveal />
+      <HeroFX />
     </>
   )
 }

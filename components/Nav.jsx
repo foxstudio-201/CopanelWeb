@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Icon from './Icon'
 
 const LINKS = [
@@ -15,12 +15,23 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
+  const progressRef = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8)
+      const doc = document.documentElement
+      const max = doc.scrollHeight - window.innerHeight
+      const p = max > 0 ? Math.min(1, window.scrollY / max) : 0
+      if (progressRef.current) progressRef.current.style.transform = `scaleX(${p})`
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [])
 
   useEffect(() => {
@@ -71,6 +82,7 @@ export default function Nav() {
 
   return (
     <header className={'nav' + (scrolled ? ' scrolled' : '')} id="nav">
+      <div className="nav-progress" ref={progressRef} />
       <div className="container nav-inner">
         <a className="brand" href="#top" aria-label="CoPanel — về đầu trang">
           <img src="/img/logo.png" alt="" width="34" height="34" />
