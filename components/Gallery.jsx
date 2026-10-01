@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const SHOTS = [
   { key: 'overview', label: 'Tổng quan', alt: 'Trang tổng quan máy chủ trong CoPanel', caption: 'Thông số RAM, CPU, Disk và TPS theo thời gian thực cùng lịch sử hoạt động.' },
@@ -14,12 +14,28 @@ const SHOTS = [
 
 export default function Gallery() {
   const [active, setActive] = useState('overview')
+  const [auto, setAuto] = useState(true)
   const tabRefs = useRef([])
+  const hoverRef = useRef(false)
+
+  // auto-advance the showcase until the visitor interacts with it
+  useEffect(() => {
+    if (!auto) return
+    const id = setInterval(() => {
+      if (hoverRef.current || document.hidden) return
+      setActive((prev) => {
+        const i = SHOTS.findIndex((s) => s.key === prev)
+        return SHOTS[(i + 1) % SHOTS.length].key
+      })
+    }, 6000)
+    return () => clearInterval(id)
+  }, [auto])
 
   const onKeyDown = (e, idx) => {
     const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0
     if (!dir) return
     e.preventDefault()
+    setAuto(false)
     const next = (idx + dir + SHOTS.length) % SHOTS.length
     setActive(SHOTS[next].key)
     tabRefs.current[next]?.focus()
@@ -28,7 +44,16 @@ export default function Gallery() {
   const current = SHOTS.find((s) => s.key === active)
 
   return (
-    <div className="gallery reveal">
+    <div
+      className="gallery reveal"
+      onMouseEnter={() => {
+        hoverRef.current = true
+      }}
+      onMouseLeave={() => {
+        hoverRef.current = false
+      }}
+      onPointerDownCapture={() => setAuto(false)}
+    >
       <div className="tabs" role="tablist" aria-label="Chọn màn hình">
         {SHOTS.map((s, i) => (
           <button

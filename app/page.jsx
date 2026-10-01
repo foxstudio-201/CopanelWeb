@@ -144,13 +144,13 @@ export default async function Page() {
         {/* ============================= FEATURES ============================= */}
         <section className="section" id="tinh-nang">
           <div className="container">
-            <header className="section-head reveal">
-              <span className="eyebrow">Tính năng</span>
-              <h2>
+            <header className="section-head">
+              <span className="eyebrow reveal">Tính năng</span>
+              <h2 className="reveal">
                 Mọi thứ để vận hành máy chủ,
                 <br /> trong một cửa sổ
               </h2>
-              <p className="section-lead">
+              <p className="section-lead reveal">
                 Từ bật/tắt máy chủ, đọc log, sửa tệp, sao lưu… đến quản lý người chơi và kho đồ — không cần mở trình
                 duyệt.
               </p>
@@ -223,35 +223,35 @@ export default async function Page() {
         {/* ============================= SPOTLIGHT ============================= */}
         <section className="section spotlight" id="kho-do">
           <div className="container spotlight-grid">
-            <div className="spotlight-copy reveal">
-              <span className="eyebrow">Nổi bật</span>
-              <h2>Kho đồ Minecraft, xem và sửa ngay trong app</h2>
-              <p className="section-lead">
+            <div className="spotlight-copy">
+              <span className="eyebrow reveal">Nổi bật</span>
+              <h2 className="reveal">Kho đồ Minecraft, xem và sửa ngay trong app</h2>
+              <p className="section-lead reveal">
                 CoPanel đọc dữ liệu người chơi từ thế giới của máy chủ và dựng lại kho đồ thành lưới đúng như trong
                 game. Give thêm vật phẩm, xoá bớt, rồi lưu — mọi thứ an toàn.
               </p>
               <ul className="check-list">
-                <li>
+                <li className="reveal">
                   <Icon name="check" />
                   Lưới 9×4 đúng kiểu Minecraft, kèm giáp và tay trái
                 </li>
-                <li>
+                <li className="reveal">
                   <Icon name="check" />
                   Give / xoá vật phẩm — chọn id, số lượng và vị trí ô
                 </li>
-                <li>
+                <li className="reveal">
                   <Icon name="check" />
                   Texture vật phẩm thật, tải trực tiếp từ dữ liệu Minecraft
                 </li>
-                <li>
+                <li className="reveal">
                   <Icon name="check" />
                   Ghi thẳng vào file NBT, giữ nguyên định dạng gốc của thế giới
                 </li>
-                <li>
+                <li className="reveal">
                   <Icon name="check" />
                   Tự tạo bản sao lưu (.bak) trước mỗi lần ghi
                 </li>
-                <li>
+                <li className="reveal">
                   <Icon name="check" />
                   Chặn lưu khi người chơi đang online — tránh mất dữ liệu
                 </li>
@@ -281,10 +281,10 @@ export default async function Page() {
         {/* ============================= GALLERY ============================= */}
         <section className="section" id="giao-dien">
           <div className="container">
-            <header className="section-head reveal">
-              <span className="eyebrow">Giao diện</span>
-              <h2>Một ứng dụng, toàn bộ giao diện</h2>
-              <p className="section-lead">Ảnh chụp thật từ ứng dụng — bấm thử từng trang bên dưới.</p>
+            <header className="section-head">
+              <span className="eyebrow reveal">Giao diện</span>
+              <h2 className="reveal">Một ứng dụng, toàn bộ giao diện</h2>
+              <p className="section-lead reveal">Ảnh chụp thật từ ứng dụng — bấm thử từng trang bên dưới.</p>
             </header>
             <Gallery />
           </div>
@@ -293,10 +293,10 @@ export default async function Page() {
         {/* ============================= SUPPORT ============================= */}
         <section className="section" id="ho-tro">
           <div className="container">
-            <header className="section-head reveal">
-              <span className="eyebrow">Hỗ trợ panel</span>
-              <h2>Kết nối mọi panel tương thích</h2>
-              <p className="section-lead">
+            <header className="section-head">
+              <span className="eyebrow reveal">Hỗ trợ panel</span>
+              <h2 className="reveal">Kết nối mọi panel tương thích</h2>
+              <p className="section-lead reveal">
                 CoPanel tự nhận diện khác biệt API của từng panel — bạn chỉ cần địa chỉ và Client API Key.
               </p>
             </header>
@@ -329,8 +329,8 @@ export default async function Page() {
                   Key 48 ký tự <code>c7sp_…</code> — nhớ cấp quyền cho key
                 </p>
               </article>
-              <article className="card wide-card reveal">
-                <div className="wide-item">
+              <article className="card wide-card">
+                <div className="wide-item reveal">
                   <span className="icon-box">
                     <Icon name="shield" />
                   </span>
@@ -342,7 +342,7 @@ export default async function Page() {
                     </p>
                   </div>
                 </div>
-                <div className="wide-item">
+                <div className="wide-item reveal">
                   <span className="icon-box icon-box-accent">
                     <Icon name="zap" />
                   </span>
@@ -362,11 +362,11 @@ export default async function Page() {
         {/* ============================= DOWNLOAD ============================= */}
         <section className="section download" id="tai-ve">
           <div className="container">
-            <div className="dl-card reveal">
+            <div className="dl-card">
               <div className="dl-copy">
-                <h2>Tải CoPanel</h2>
-                <p className="section-lead">Windows 10/11 (64-bit) · Miễn phí · Bản phát hành chính thức từ GitHub.</p>
-                <div className="cta-row">
+                <h2 className="reveal">Tải CoPanel</h2>
+                <p className="section-lead reveal">Windows 10/11 (64-bit) · Miễn phí · Bản phát hành chính thức từ GitHub.</p>
+                <div className="cta-row reveal">
                   <a className="btn btn-primary btn-lg" id="dlSetup" href={rel.setupUrl}>
                     <Icon name="download" />
                     <span className="btn-label">Tải bản cài đặt</span>
@@ -377,7 +377,7 @@ export default async function Page() {
                     Bản portable
                   </a>
                 </div>
-                <ul className="meta-list">
+                <ul className="meta-list reveal">
                   <li>
                     <Icon name="windows" className="ic ic-fill" />
                     Windows 10 / 11 — 64-bit
@@ -391,7 +391,7 @@ export default async function Page() {
                     Có trang điều khoản sử dụng khi cài
                   </li>
                 </ul>
-                <p className="dl-links">
+                <p className="dl-links reveal">
                   <a href={RELEASES_URL} target="_blank" rel="noopener">
                     Tất cả bản phát hành
                     <Icon name="external" />
@@ -406,7 +406,7 @@ export default async function Page() {
                   </a>
                 </p>
               </div>
-              <div className="dl-visual" aria-hidden="true">
+              <div className="dl-visual reveal" aria-hidden="true">
                 <img src="/img/screens/system.webp" width="1600" height="1036" alt="" loading="lazy" decoding="async" />
               </div>
             </div>
@@ -416,9 +416,9 @@ export default async function Page() {
         {/* ============================= FAQ ============================= */}
         <section className="section" id="faq">
           <div className="container faq-wrap">
-            <header className="section-head reveal">
-              <span className="eyebrow">FAQ</span>
-              <h2>Câu hỏi thường gặp</h2>
+            <header className="section-head">
+              <span className="eyebrow reveal">FAQ</span>
+              <h2 className="reveal">Câu hỏi thường gặp</h2>
             </header>
             <div className="faq-list">
               <details className="faq-item reveal">
