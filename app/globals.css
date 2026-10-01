@@ -393,6 +393,40 @@ html[data-theme='light'] .card { background-image: linear-gradient(180deg, rgba(
   box-shadow: 0 22px 50px -32px rgba(0, 0, 0, 0.7);
 }
 html[data-theme='light'] .card:hover { box-shadow: 0 22px 50px -34px rgba(24, 24, 70, 0.35); }
+
+/* pointer-driven border bloom (ring + soft interior glow follow the cursor) */
+.card, .dl-card, .faq-item, .stage { --bx: 50%; --by: 0%; }
+.card, .faq-item { position: relative; }
+.card::before {
+  content: ''; position: absolute; inset: -1px; border-radius: calc(var(--radius) + 1px); padding: 1.2px;
+  background: radial-gradient(260px circle at var(--bx) var(--by), rgba(167, 139, 250, 0.85), rgba(167, 139, 250, 0.12) 44%, transparent 74%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+}
+.card:hover::before { opacity: 1; }
+.card::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(290px circle at var(--bx) var(--by), rgba(139, 92, 246, 0.13), transparent 66%);
+  opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+}
+.card:hover::after { opacity: 1; }
+.faq-item::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: radial-gradient(230px circle at var(--bx) var(--by), rgba(167, 139, 250, 0.7), transparent 72%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+}
+.faq-item:hover::before { opacity: 1; }
+.stage::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; z-index: 3;
+  background: radial-gradient(340px circle at var(--bx) var(--by), rgba(167, 139, 250, 0.75), transparent 72%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+}
+.stage:hover::before { opacity: 1; }
 .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .feature { display: flex; flex-direction: column; gap: 12px; padding: 24px; }
 .icon-box {
@@ -515,7 +549,9 @@ html[data-theme='light'] .tag-cyan { color: #0e7490; }
 }
 .dl-card::before {
   content: ''; position: absolute; inset: -1px; border-radius: 25px; padding: 1.2px;
-  background: linear-gradient(180deg, rgba(139, 92, 246, 0.55), rgba(139, 92, 246, 0.06) 42%);
+  background:
+    radial-gradient(340px circle at var(--bx, 50%) var(--by, 0%), rgba(167, 139, 250, 0.75), transparent 72%),
+    linear-gradient(180deg, rgba(139, 92, 246, 0.55), rgba(139, 92, 246, 0.06) 42%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
   pointer-events: none;
@@ -523,6 +559,7 @@ html[data-theme='light'] .tag-cyan { color: #0e7490; }
 .dl-card::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
+    radial-gradient(360px circle at var(--bx, 50%) var(--by, 12%), rgba(139, 92, 246, 0.15), transparent 70%),
     radial-gradient(ellipse 46% 60% at 0% 0%, rgba(236, 72, 153, 0.13), transparent 70%),
     radial-gradient(ellipse 46% 60% at 100% 100%, rgba(34, 211, 238, 0.12), transparent 70%);
   animation: tint-pulse 7s ease-in-out infinite alternate;
@@ -633,15 +670,7 @@ html[data-theme='light'] .tag-cyan { color: #0e7490; }
   .stage-caption { font-size: 12.5px; padding: 36px 14px 12px; }
 }
 
-/* ---------- motion preferences ---------- */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .blob-a, .blob-b, .chip-a, .chip-b, .marquee-track { animation: none !important; }
-  .hero-copy > *, .hero-visual, .hero-visual .window, .dl-card::after, .nav-mobile { animation: none !important; }
-  .btn-primary::after { display: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .shot { transition: none; transform: none; }
-  .btn, .card, .card:hover, .icon-btn, .tab, .nav-links a, .footer-col a, .dl-visual img,
-  .card:hover .icon-box { transition: none; }
-  .card:hover, .icon-btn:hover, .tab:hover, .tab.is-active { transform: none; }
-}
+/* ---------- motion ----------
+   The site owner explicitly wants these effects visible on every machine
+   (Windows "animation effects: off" reports prefers-reduced-motion: reduce,
+   which would otherwise hide the reveals, floats and marquee entirely). */

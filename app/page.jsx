@@ -1,7 +1,7 @@
 import Nav from '../components/Nav'
 import Gallery from '../components/Gallery'
 import Reveal from '../components/Reveal'
-import HeroFX from '../components/HeroFX'
+import PointerFX from '../components/PointerFX'
 import Icon from '../components/Icon'
 import Sprite from '../components/Sprite'
 import { getLatestRelease, REPO_URL, RELEASES_URL, LICENSE_URL, README_URL } from '../lib/release'
@@ -420,8 +420,8 @@ export default async function Page() {
               <span className="eyebrow">FAQ</span>
               <h2>Câu hỏi thường gặp</h2>
             </header>
-            <div className="faq-list reveal">
-              <details className="faq-item">
+            <div className="faq-list">
+              <details className="faq-item reveal">
                 <summary>
                   Cần tài khoản hay máy chủ trung gian nào không?
                   <Icon name="chev" className="ic faq-chev" />
@@ -433,7 +433,7 @@ export default async function Page() {
                   </p>
                 </div>
               </details>
-              <details className="faq-item">
+              <details className="faq-item reveal">
                 <summary>
                   Tôi cần gì để kết nối?
                   <Icon name="chev" className="ic faq-chev" />
@@ -452,7 +452,7 @@ export default async function Page() {
                   </ul>
                 </div>
               </details>
-              <details className="faq-item">
+              <details className="faq-item reveal">
                 <summary>
                   Kho đồ người chơi hoạt động thế nào?
                   <Icon name="chev" className="ic faq-chev" />
@@ -465,7 +465,7 @@ export default async function Page() {
                   </p>
                 </div>
               </details>
-              <details className="faq-item">
+              <details className="faq-item reveal">
                 <summary>
                   Dùng thử mà không có panel được không?
                   <Icon name="chev" className="ic faq-chev" />
@@ -477,7 +477,7 @@ export default async function Page() {
                   </p>
                 </div>
               </details>
-              <details className="faq-item">
+              <details className="faq-item reveal">
                 <summary>
                   Bản cài đặt và bản portable khác gì nhau?
                   <Icon name="chev" className="ic faq-chev" />
@@ -489,7 +489,7 @@ export default async function Page() {
                   </p>
                 </div>
               </details>
-              <details className="faq-item">
+              <details className="faq-item reveal">
                 <summary>
                   CoPanel có chạy trên macOS hay Linux không?
                   <Icon name="chev" className="ic faq-chev" />
@@ -505,21 +505,21 @@ export default async function Page() {
 
       <footer className="footer">
         <div className="container footer-grid">
-          <div className="footer-brand">
+          <div className="footer-brand reveal">
             <a className="brand" href="#top">
               <img src="/img/logo.png" alt="" width="30" height="30" />
               <span>CoPanel</span>
             </a>
             <p>Trình quản lý máy chủ game trên Windows. Miễn phí, mã nguồn công khai trên GitHub.</p>
           </div>
-          <nav className="footer-col" aria-label="Sản phẩm">
+          <nav className="footer-col reveal" aria-label="Sản phẩm">
             <h3>Sản phẩm</h3>
             <a href="#tinh-nang">Tính năng</a>
             <a href="#kho-do">Kho đồ</a>
             <a href="#giao-dien">Giao diện</a>
             <a href="#tai-ve">Tải về</a>
           </nav>
-          <nav className="footer-col" aria-label="Tài nguyên">
+          <nav className="footer-col reveal" aria-label="Tài nguyên">
             <h3>Tài nguyên</h3>
             <a href={REPO_URL} target="_blank" rel="noopener">
               GitHub
@@ -544,7 +544,7 @@ export default async function Page() {
       </footer>
 
       <Reveal />
-      <HeroFX />
+      <PointerFX />
     </>
   )
 }
