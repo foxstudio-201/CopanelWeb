@@ -436,9 +436,9 @@ html[data-theme='light'] .card:hover { box-shadow: 0 22px 50px -34px rgba(24, 24
 .card, .dl-card, .faq-item, .stage { --bx: 50%; --by: 0%; }
 .card, .faq-item { position: relative; z-index: 0; }
 .card::before, .faq-item::before {
-  content: ''; position: absolute; inset: -26px; border-radius: 34px; z-index: -1;
-  background: radial-gradient(300px circle at var(--bx) var(--by), rgba(139, 92, 246, 0.42), rgba(139, 92, 246, 0.12) 48%, transparent 70%);
-  filter: blur(18px);
+  content: ''; position: absolute; inset: -14px; border-radius: 26px; z-index: -1;
+  background: radial-gradient(175px circle at var(--bx) var(--by), rgba(139, 92, 246, 0.42), rgba(139, 92, 246, 0.12) 46%, transparent 68%);
+  filter: blur(11px);
   opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
 }
 .card:hover::before, .faq-item:hover::before { opacity: 1; }
@@ -466,7 +466,7 @@ html[data-theme='light'] .card:hover { box-shadow: 0 22px 50px -34px rgba(24, 24
 }
 .stage::after {
   content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: 1;
-  background: radial-gradient(380px circle at var(--bx) var(--by), rgba(139, 92, 246, 0.18), transparent 66%);
+  background: radial-gradient(240px circle at var(--bx) var(--by), rgba(139, 92, 246, 0.16), transparent 66%);
   opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
 }
 .stage:hover::before, .stage:hover::after { opacity: 1; }
@@ -602,7 +602,7 @@ html[data-theme='light'] .tag-cyan { color: #0e7490; }
 .dl-card::after {
   content: ''; position: absolute; inset: -12px; border-radius: 36px; pointer-events: none;
   background:
-    radial-gradient(420px circle at var(--bx, 50%) var(--by, 10%), rgba(139, 92, 246, 0.2), transparent 72%),
+    radial-gradient(260px circle at var(--bx, 50%) var(--by, 10%), rgba(139, 92, 246, 0.18), transparent 70%),
     radial-gradient(ellipse 46% 60% at 2% 2%, rgba(236, 72, 153, 0.13), transparent 70%),
     radial-gradient(ellipse 46% 60% at 98% 98%, rgba(34, 211, 238, 0.12), transparent 70%);
   animation: tint-pulse 7s ease-in-out infinite alternate;
