@@ -41,9 +41,9 @@ export default async function Page() {
                 <span className="grad-text">ngay trên desktop</span>
               </h1>
               <p className="lead">
-                CoPanel kết nối trực tiếp tới panel <strong>Pterodactyl</strong> và <strong>Calagopus</strong> —
-                console realtime, tệp tin, sao lưu, lịch trình, người chơi và kho đồ Minecraft… tất cả trong một ứng
-                dụng Windows gọn nhẹ. Không tài khoản trung gian, dữ liệu không rời khỏi máy bạn.
+                CoPanel kết nối trực tiếp tới <strong>nền tảng dịch vụ hosting game</strong> như Pterodactyl,
+                Calagopus — console realtime, tệp tin, sao lưu, lịch trình, người chơi và kho đồ Minecraft… tất cả
+                trong một ứng dụng Windows gọn nhẹ. Không tài khoản trung gian, dữ liệu không rời khỏi máy bạn.
               </p>
               <div className="cta-row">
                 <a className="btn btn-primary btn-lg" id="heroDownload" href={rel.setupUrl}>
